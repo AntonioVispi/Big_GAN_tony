@@ -209,7 +209,8 @@ class Trainer(object):
                 save_image(denorm(fake_images.data),
                            os.path.join(self.sample_path, '{}_fake.png'.format(step + 1)))
 
-            if (step+1) % model_save_step==0:
+            #if (step+1) % model_save_step==0:
+            if (step+1) == model_save_step:
                 torch.save(self.G.state_dict(),
                            os.path.join(self.model_save_path, '{}_G.pth'.format(step + 1)))
                 torch.save(self.D.state_dict(),
