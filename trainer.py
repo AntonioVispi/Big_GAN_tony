@@ -215,6 +215,7 @@ class Trainer(object):
                            os.path.join(self.model_save_path, '{}_G.pth'.format(step + 1)))
                 torch.save(self.D.state_dict(),
                            os.path.join(self.model_save_path, '{}_D.pth'.format(step + 1)))
+                print('HAI ROTTO IL CAZZOOOOOOOOOO')
             
             
 
