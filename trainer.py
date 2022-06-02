@@ -208,6 +208,7 @@ class Trainer(object):
                 fake_images= self.G(fixed_z, z_class_one_hot)
                 save_image(denorm(fake_images.data),
                            os.path.join(self.sample_path, '{}_fake.png'.format(step + 1)))
+                print('HAI ROTTO LE PALLE')
 
             #if (step+1) % model_save_step==0:
             if (step+1)==int(model_save_step):
