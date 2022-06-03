@@ -208,11 +208,6 @@ class Trainer(object):
                 #############################################################################################################################
                 NUM_IMAGES=1
                 
-                def label_sampel_NUOVO(self):
-                    label = torch.LongTensor(NUM_IMAGES, 1).random_()%self.n_class
-                    one_hot= torch.zeros(NUM_IMAGES, self.n_class).scatter_(1, label, 1)
-                    return label.squeeze(1).to(self.device), one_hot.to(self.device) 
-                
                 
                 z = torch.randn(NUM_IMAGES, self.z_dim).to(self.device)
                 z_class, z_class_one_hot = self.label_sampel_NUOVO()
