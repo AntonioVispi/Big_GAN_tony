@@ -217,6 +217,14 @@ class Trainer(object):
                 torch.save(self.D.state_dict(),
                            os.path.join(self.model_save_path, '{}_D.pth'.format(step + 1)))
                 print('EVVAIII')
+                z = torch.randn(self.10, self.z_dim).to(self.device)
+                z_class, z_class_one_hot = self.label_sampel()
+            
+                fake_images = self.G(z, z_class_one_hot)
+                torch.save(fake_images, '/content/drive/MyDrive/GAN_FILTRATO/BIG_GAN/fake_images')
+                
+                
+                
             
             
 
