@@ -205,7 +205,12 @@ class Trainer(object):
             # Sample images
             if (step + 1) % self.sample_step == 0:
                 print('Sample images {}_fake.png'.format(step + 1))
-                fake_images= self.G(fixed_z, z_class_one_hot)
+                #############################################################################################################################
+                NUM_IMAGES=100
+                z = torch.randn(self.NUM_IMAGES, self.z_dim).to(self.device)
+                z_class, z_class_one_hot = self.label_sampel()
+                
+                fake_images= self.G(z, z_class_one_hot)
                 save_image(denorm(fake_images.data),
                            os.path.join(self.sample_path, '{}_fake.png'.format(step + 1)))
                 
@@ -217,11 +222,13 @@ class Trainer(object):
                 torch.save(self.D.state_dict(),
                            os.path.join(self.model_save_path, '{}_D.pth'.format(step + 1)))
                 print('EVVAIII')
-                z = torch.randn(self.10, self.z_dim).to(self.device)
-                z_class, z_class_one_hot = self.label_sampel()
+                
+                #############################################################################################################################
+                
+                            
+
             
-                fake_images = self.G(z, z_class_one_hot)
-                torch.save(fake_images, '/content/drive/MyDrive/GAN_FILTRATO/BIG_GAN/fake_images')
+ 
                 
                 
                 
