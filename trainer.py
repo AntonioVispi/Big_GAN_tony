@@ -206,8 +206,8 @@ class Trainer(object):
             if (step + 1) % self.sample_step == 0:
                 print('Sample images {}_fake.png'.format(step + 1))
                 #############################################################################################################################
-                NUM_IMAGES=100
-                z = torch.randn(self.NUM_IMAGES, self.z_dim).to(self.device)
+                NUM_IMAGES=1
+                z = torch.randn(NUM_IMAGES, self.z_dim).to(self.device)
                 z_class, z_class_one_hot = self.label_sampel()
                 
                 fake_images= self.G(z, z_class_one_hot)
