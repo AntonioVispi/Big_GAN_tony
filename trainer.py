@@ -10,6 +10,7 @@ from torchvision.utils import save_image
 
 from model_resnet import Generator, Discriminator
 from utils import *
+NUM_IMAGES = 1
 
 class Trainer(object):
     def __init__(self, data_loader, config):
