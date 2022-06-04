@@ -58,6 +58,7 @@ class Trainer(object):
         self.chn = config.chn
         
         self.NUM_IMAGES = 1
+        self.NUM_IMAGES = config.NUM_IMAGES
 
         # Path
         self.log_path = os.path.join(config.log_path, self.version)
