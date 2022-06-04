@@ -11,6 +11,7 @@ from torchvision.utils import save_image
 from model_resnet import Generator, Discriminator
 from utils import *
 NUM_IMAGES = 1
+NUM_FAKES = 10
 
 class Trainer(object):
     def __init__(self, data_loader, config):
@@ -217,13 +218,13 @@ class Trainer(object):
                 #############################################################################################################################
                 #NUM_IMAGES=1
                 
+                for i in range (1,NUM_FAKES+1):
+                    z = torch.randn(NUM_IMAGES, self.z_dim).to(self.device)
+                    z_class, z_class_one_hot = self.label_sampel_NUOVO()
                 
-                z = torch.randn(NUM_IMAGES, self.z_dim).to(self.device)
-                z_class, z_class_one_hot = self.label_sampel_NUOVO()
-                
-                fake_images= self.G(z, z_class_one_hot)
-                save_image(denorm(fake_images.data),
-                           os.path.join(self.sample_path, '{}_fake.png'.format(step + 1)))
+                    fake_images= self.G(z, z_class_one_hot)
+                    save_image(denorm(fake_images.data),
+                               os.path.join(self.sample_path, '{}_fake_'+str(i)+'.png'.format(step + 1)))
                 
 
             #if (step+1) % model_save_step==0:
