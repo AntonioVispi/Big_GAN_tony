@@ -224,7 +224,7 @@ class Trainer(object):
                 
                     fake_images= self.G(z, z_class_one_hot)
                     save_image(denorm(fake_images.data),
-                               os.path.join(self.sample_path, '{}_fake_'+str(i)+'.png'.format(step + 1)))
+                               os.path.join(self.sample_path, 'fake_'+str(i)+'.png'.format(step + 1)))
                 
 
             #if (step+1) % model_save_step==0:
